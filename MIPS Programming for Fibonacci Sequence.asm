@@ -21,3 +21,12 @@ syscall
 #recieve num
 li $v0, 5
 syscall
+move $t0, $v0 #make t0 = N integer
+
+#illegal num check
+li $t1, 22
+blt $t0, $t1, illegal_num
+j fib_generator  # if num is legal, move on
+
+illegal_num: #runs if the input is an illegal num
+    li $v0, 4
