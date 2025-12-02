@@ -61,3 +61,12 @@ print_fib:
     move $t3, $t5
 
     addi $t4, $t4, -1
+    j print_fib # decrease count as new nums are generated
+
+killswitch:
+
+    li $v0, 4
+    la $a0, insert_new_line
+    syscall
+
+    li $v0, 10
