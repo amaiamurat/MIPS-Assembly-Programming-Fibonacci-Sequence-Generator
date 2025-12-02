@@ -23,7 +23,7 @@ input_loop: #keep prompting user
     syscall
     move $t0, $v0 #make t0 = N integer
 
-    #illegal num check
+    #num check
     li $t1, 22
     blt $t0, $t1, illegal_num
     
