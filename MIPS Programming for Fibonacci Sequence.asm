@@ -29,7 +29,7 @@ input_loop: #keep prompting user
     
     j fib_generator  # if num is legal, continue
 
-illegal_num: #runs if the input is not legal
+illegal_num: #runs if the input isn't legal
     li $v0, 4
     la $a0, error
     syscall
