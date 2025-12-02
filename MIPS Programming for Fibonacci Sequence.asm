@@ -10,9 +10,9 @@ insert_new_line: .asciiz "\n"
 
 main:
 
-#step 1
+#step one
 
-input_loop: #keep prompting user for num
+input_loop: #keep prompting user
 
     li $v0, 4
     la $a0, user_prompt
@@ -27,9 +27,9 @@ input_loop: #keep prompting user for num
     li $t1, 22
     blt $t0, $t1, illegal_num
     
-    j fib_generator  # if num is legal, move on
+    j fib_generator  # if num is legal, continue
 
-illegal_num: #runs if the input is an illegal num
+illegal_num: #runs if the input is not legal
     li $v0, 4
     la $a0, error
     syscall
