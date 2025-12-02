@@ -26,6 +26,7 @@ input_loop: #keep prompting user for num
     #illegal num check
     li $t1, 22
     blt $t0, $t1, illegal_num
+    
     j fib_generator  # if num is legal, move on
 
 illegal_num: #runs if the input is an illegal num
@@ -48,7 +49,7 @@ fib_generator:
 
 print_fib:
     beqz $t4, killswitch  # base case   
-    
+
     li $v0, 1
     move $a0, $t2
     syscall #above prints curr fibonacci num
