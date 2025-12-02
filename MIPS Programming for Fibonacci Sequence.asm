@@ -54,4 +54,10 @@ print_fib:
     
     li $v0, 4
     la $a0, insert_space
- 
+    syscall
+
+    add $t5, $t2, $t3
+    move $t2, $t3
+    move $t3, $t5
+
+    addi $t4, $t4, -1
