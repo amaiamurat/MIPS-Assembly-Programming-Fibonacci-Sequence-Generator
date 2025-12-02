@@ -35,14 +35,14 @@ illegal_num: #runs if the input isn't legal
     syscall
     j input_loop
 
-# Step 2
+# Step two
 
 fib_generator:
     li $v0, 4
     la $a0, fib_title
     syscall
 
-    #Init known Fibonacci values e.g. 0 and 1
+    #Init known Fibonacci values
     li $t2, 0
     li $t3, 1
     move $t4, $t0
@@ -63,7 +63,7 @@ print_fib:
     move $t3, $t5
 
     addi $t4, $t4, -1
-    j print_fib # decrease count as new nums are generated
+    j print_fib # decrease count as new numbers are generated
 
 killswitch:
 
