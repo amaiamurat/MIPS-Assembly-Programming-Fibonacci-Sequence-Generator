@@ -30,3 +30,12 @@ j fib_generator  # if num is legal, move on
 
 illegal_num: #runs if the input is an illegal num
     li $v0, 4
+    la $a0, error_message
+    syscall
+    j input_loop
+
+# Step 2
+
+fib_generator:
+    li $v0, 4
+    la $a0, fib_title
