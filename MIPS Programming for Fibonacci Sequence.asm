@@ -1,7 +1,7 @@
 .data
-user_prompt: .asciiz 'Entr an integer, N. (NOTE: N must be >= 22)"
+user_prompt: .asciiz "Enter an integer, N (NOTE: N must be >= 22):"
 error: .asciiz "Illegal Number!\n"
-Fib_title: .asciiz "Fibonacci Sequence:\n"
+fib_title: .asciiz "Fibonacci Sequence:\n"
 insert_space: .asciiz " "
 insert_new_line: .asciiz "\n"
 
@@ -14,23 +14,23 @@ main:
 
 input_loop: #keep prompting user for num
 
-li $v0, 4
-la $a0, user_prompt
-syscall
+    li $v0, 4
+    la $a0, user_prompt
+    syscall
 
-#recieve num
-li $v0, 5
-syscall
-move $t0, $v0 #make t0 = N integer
+    #recieve num
+    li $v0, 5
+    syscall
+    move $t0, $v0 #make t0 = N integer
 
-#illegal num check
-li $t1, 22
-blt $t0, $t1, illegal_num
-j fib_generator  # if num is legal, move on
+    #illegal num check
+    li $t1, 22
+    blt $t0, $t1, illegal_num
+    j fib_generator  # if num is legal, move on
 
 illegal_num: #runs if the input is an illegal num
     li $v0, 4
-    la $a0, error_message
+    la $a0, error
     syscall
     j input_loop
 
@@ -48,6 +48,7 @@ fib_generator:
 
 print_fib:
     beqz $t4, killswitch  # base case   
+    
     li $v0, 1
     move $a0, $t2
     syscall #above prints curr fibonacci num
@@ -71,4 +72,4 @@ killswitch:
 
     li $v0, 10
 
-     syscall #exit
+    syscall #exit
