@@ -39,3 +39,12 @@ illegal_num: #runs if the input is an illegal num
 fib_generator:
     li $v0, 4
     la $a0, fib_title
+    syscall
+
+    #Init known Fibonacci values e.g. 0 and 1
+    li $t2, 0
+    li $t3, 1
+    move $t4, $t0
+
+print_fib:
+    beqz $t4, killswitch  # base case
