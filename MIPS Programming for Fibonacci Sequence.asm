@@ -47,4 +47,11 @@ fib_generator:
     move $t4, $t0
 
 print_fib:
-    beqz $t4, killswitch  # base case
+    beqz $t4, killswitch  # base case   
+    li $v0, 1
+    move $a0, $t2
+    syscall #above prints curr fibonacci num
+    
+    li $v0, 4
+    la $a0, insert_space
+ 
